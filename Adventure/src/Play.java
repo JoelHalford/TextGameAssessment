@@ -32,18 +32,22 @@ public class Play {
 			if (input.toUpperCase().equals("NORTH") || input.toUpperCase().equals("N"))
 			{
 				map.north();
+				output(map);
 			}
 			else if (input.toUpperCase().equals("EAST") || input.toUpperCase().equals("E"))
 			{
 				map.east();
+				output(map);
 			}
 			else if (input.toUpperCase().equals("SOUTH") || input.toUpperCase().equals("S"))
 			{
 				map.south();
+				output(map);
 			}
 			else if (input.toUpperCase().equals("WEST") || input.toUpperCase().equals("W"))
 			{
 				map.west();
+				output(map);
 			}
 			else if (input.toUpperCase().equals("PICKUP") || input.toUpperCase().equals("P"))
 			{
@@ -76,8 +80,11 @@ public class Play {
 			{
 				proceed = false;
 			}
-			
-			System.out.println("Current location: " + map.checkLocation());
 		}
+	}
+	
+	public void output(Map map)
+	{
+		System.out.println("Current location: " + map.checkLocation());
 	}
 }

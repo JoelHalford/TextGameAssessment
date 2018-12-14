@@ -38,17 +38,7 @@ public class Player {
 	
 	public void useItem(Map map, String item)
 	{
-		if (!item.equals("TELEPORTER") && !item.equals("POTION"))
-		{
-			for (String inv : inventory)
-			{
-				if (inv.equals(item))
-				{
-					inventory.remove(item);
-				}
-			}	
-		}
-		else if (item.equals("TELEPORTER"))
+		if (item.equals("TELEPORTER"))
 		{
 			for (String inv : inventory)
 			{
@@ -69,7 +59,6 @@ public class Player {
 				}
 			}
 		}
-
 	}
 	
 	public void checkCompass(Map map)

@@ -2,7 +2,7 @@ public class Map {
 
 	private double xLocation1 = 3;
 	private double yLocation1 = 5;
-	private double xLocation2 = 4;
+	private double xLocation2 = 5;
 	private double yLocation2 = -3;
 	private static int incrementAct;
 	private int act;
@@ -10,14 +10,13 @@ public class Map {
 	private static double incrementY;
 	private double xPlayer;
 	private double yPlayer;
-	private static boolean pickup;
 	private boolean winner = false;
 		
 	public void north() 
 	{
 		if (act == 0)
 		{
-			if (xLocation1 >= xPlayer)
+			if (xLocation1 > xPlayer)
 			{
 				setLocation(1, 0);
 			}
@@ -32,7 +31,6 @@ public class Map {
 		}
 		else
 		{
-			System.out.println("HELLO");
 			if (xLocation2 >= xPlayer)
 			{
 				setLocation(1, 0);
@@ -41,10 +39,10 @@ public class Map {
 			{
 				setLocation(-1, 0);
 			}
-//			else if (xLocation2 == xPlayer)
-//			{
-//				System.out.println("A wall blocks your path, move east or west.");
-//			}
+			else if (xLocation2 == xPlayer)
+			{
+				System.out.println("A wall blocks your path, move east or west.");
+			}
 		}
 	}	
 	public void east() 
