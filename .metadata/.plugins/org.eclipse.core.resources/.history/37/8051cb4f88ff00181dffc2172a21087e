@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+
+public class Player {
+
+	ArrayList<String> inventory = new ArrayList<>();
+	
+	
+	public void addItem(String item)
+	{
+		inventory.add(item);
+	}
+	
+	public void checkInventory()
+	{
+		System.out.println("Inventory Contents");
+		inventory.stream().forEach(System.out::println);
+	}
+	
+	public boolean compare(String item)
+	{
+		for (String inv : inventory)
+		{
+			if (inv.equals(item))
+			{
+				System.out.println("You already have that item in your inventory.");
+				return false;
+			}
+		}
+		System.out.println("You picked up the " + item);
+		return true;
+	}
+	
+	public void useItem(String item)
+	{
+		if (item != "teleporter")
+		{
+			for (String inv : inventory)
+			{
+				
+			}	
+		}
+
+	}
+	
+	public void checkCompass()
+	{
+		
+	}
+}

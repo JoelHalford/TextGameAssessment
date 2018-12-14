@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class Player {
+
+	ArrayList<String> inventory = new ArrayList<>();
+	
+	public void addItem()
+	{
+		inventory.add("Compass");
+	}
+	
+	public void checkInventory()
+	{
+		inventory.stream().forEach(System.out::println);
+	}
+}

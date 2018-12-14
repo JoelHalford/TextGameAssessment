@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		boolean proceed = true;
+		String input = "";
+		String previousInput;
+		int counter = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		Map map = new Map();
+		Player player = new Player();
+		
+		Play play = new Play();
+		
+		play.playGame();
+	}
+
+}

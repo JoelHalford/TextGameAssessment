@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		boolean proceed = true;
+		String input = "";
+		String previousInput;
+		Scanner sc = new Scanner(System.in);
+		
+		Map map = new Map();
+		Player player = new Player();
+		
+		while (proceed)
+		{
+			previousInput = input.toUpperCase();
+			input = sc.next().toUpperCase();
+			
+			System.out.println(input);
+			
+			if (input.toUpperCase().equals("NORTH") || input.toUpperCase().equals("N"))
+			{
+				map.north(previousInput);
+			}
+			else if (input.toUpperCase().equals("EAST") || input.toUpperCase().equals("E"))
+			{
+				map.east(previousInput);
+			}
+			else if (input.toUpperCase().equals("SOUTH") || input.toUpperCase().equals("S"))
+			{
+				map.south(previousInput);
+			}
+			else if (input.toUpperCase().equals("WEST") || input.toUpperCase().equals("W"))
+			{
+				map.west(previousInput);
+			}
+			else if (input.toUpperCase().equals("PICKUP") || input.toUpperCase().equals("P"))
+			{
+				map.pickup(player);
+			}
+			else if (input.toUpperCase().equals("USE") || input.toUpperCase().equals("U"))
+			{
+				System.out.println("Which item would you like to use?");
+				player.checkInventory();
+				input = sc.next();				
+				String inputUpper = input.toUpperCase();
+				player.useItem(map, input);				
+			}
+			else if (input.toUpperCase().equals("CHECK") || input.toUpperCase().equals("C"))
+			{
+				player.checkInventory();
+			}
+			
+			if (map.win())
+			{
+				System.out.println("You found santa!");
+				proceed = false;
+			}
+			
+			System.out.println("Current location: " + map.checkLocation());
+		}
+		
+		
+		
+		
+		
+	}
+
+}

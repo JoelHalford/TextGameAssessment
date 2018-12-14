@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		boolean proceed = true;
+		String input = "";
+		String previousInput;
+		Scanner sc = new Scanner(System.in);
+		
+		Map map = new Map();
+		
+		while (proceed)
+		{
+			previousInput = input;
+			input = sc.next();
+			
+			if (input.toUpperCase().equals("NORTH") || input.toUpperCase().equals("N"))
+			{
+				map.north(previousInput);
+			}
+		}
+		
+		
+		
+		
+		
+	}
+
+}

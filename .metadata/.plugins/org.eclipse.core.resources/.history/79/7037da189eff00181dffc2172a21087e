@@ -1,0 +1,173 @@
+public class Map {
+
+	private double xLocation1 = 3;
+	private double yLocation1 = 5;
+	private double xLocation2 = 4;
+	private double yLocation2 = -3;
+	private static int incrementAct;
+	private int act;
+	private static double incrementX;
+	private static double incrementY;
+	private double xPlayer;
+	private double yPlayer;
+	private static boolean pickup;
+		
+	public void north() 
+	{
+		if (xLocation1 > xPlayer)
+		{
+			setLocation(1, 0);
+		}
+		else if (xLocation1 < xPlayer)
+		{
+			setLocation(-1, 0);
+		}
+		else if (xLocation1 == xPlayer)
+		{
+			System.out.println("A wall blocks your path, move east or west.");
+		}
+	}	
+	public void east() 
+	{
+		if (yLocation1 > yPlayer)
+		{
+			setLocation(0, 1);
+		}
+		else if (yLocation1 < yPlayer)
+		{
+			setLocation(0, -1);
+		}
+	}
+	
+	public void south() 
+	{
+		if (xLocation1 > xPlayer)
+		{
+			setLocation(-1, 0);
+		}
+		else if (xLocation1 <= xPlayer)
+		{
+			setLocation(1, 0);
+		}
+	}
+	
+	public void west() 
+	{
+		if (yLocation1 > yPlayer)
+		{
+			setLocation(0, -1);
+		}
+		else if (yLocation1 <= yPlayer)
+		{
+			setLocation(0, 1);
+		}
+	}
+	
+	public void setLocation(int x, int y)
+	{
+		incrementX += x;
+		incrementY += y;
+		xPlayer = incrementX;
+		yPlayer = incrementY;
+	}
+	
+	public double checkLocation()
+	{
+		if (act == 0)
+		{
+			if (xPlayer == 1 && yPlayer == 0)
+			{
+				System.out.println("You pass by some trees into a forest.");
+			}
+			else if ((xLocation1 + yLocation1) - (xPlayer + yPlayer) == 1)
+			{
+				System.out.println("You sense you are very close to where the compass is leading!");
+			}
+			else if ((xLocation1 + yLocation1) - (xPlayer + yPlayer) == 2)
+			{
+				System.out.println("You check your compass. Looks like it's near by.");
+			}
+			else if ((xLocation1 + yLocation1) - (xPlayer + yPlayer) == 4)
+			{
+				System.out.println("Still a distance to go. Too many trees, no vision.");
+			}
+			else if ((xLocation1 + yLocation1) - (xPlayer + yPlayer) == 0)
+			{
+				System.out.println("There's an item on the floor! You should pick it up. (PICKUP)");
+			}
+			
+			return ((xLocation1 + yLocation1) - (xPlayer + yPlayer));			
+		}
+		else if (act == 2)
+		{
+			if (xPlayer == 1 && yPlayer == 0)
+			{
+				System.out.println("You pass by some trees into a forest.");
+			}
+			else if ((xLocation2 + yLocation2) - (xPlayer + yPlayer) == 1)
+			{
+				System.out.println("You sense you are very close to where the compass is leading!");
+			}
+			else if ((xLocation2 + yLocation2) - (xPlayer + yPlayer) == 2)
+			{
+				System.out.println("You check your compass. Looks like it's near by.");
+			}
+			else if ((xLocation2 + yLocation2) - (xPlayer + yPlayer) == 4)
+			{
+				System.out.println("Still a distance to go. Too many trees, no vision.");
+			}
+			else if ((xLocation2 + yLocation2) - (xPlayer + yPlayer) == 0)
+			{
+				System.out.println("There's an item on the floor! You should pick it up. (PICKUP)");
+			}
+			
+			return ((xLocation2 + yLocation2) - (xPlayer + yPlayer));
+		}
+		return 0;		
+	}
+	
+	public void pickup(Player player)
+	{
+		System.out.println(xPlayer);
+		System.out.println(yPlayer);
+		
+		if (xPlayer == xLocation1 && yPlayer == yLocation1)
+		{
+			if (player.compare("TELEPORTER"))
+			{	
+				System.out.println("You picked up a glowing stone. There seems to be a button. Use the item, perhaps? What's the worst that could happen?");
+				player.addItem("TELEPORTER");				
+			}			
+		}
+		else if (xPlayer == xLocation2 && yPlayer == yLocation2)
+		{
+			if (player.compare("POTION"))
+			{
+				player.addItem("POTION");
+			}
+		}
+		else
+		{
+			System.out.println("No items to pick up!");
+		}
+	}
+	
+	public boolean win()
+	{
+		return false;
+	}
+
+	public void progress() {
+		
+		incrementAct += 1;
+		act = incrementAct;
+		
+		
+		if (part == 1)
+		{
+			System.out.println("Woosh! You arrive in another unknown location. \nThere's a cold breeze surrounding you, light snow and a cabin to the distance. \nYou try approaching the cabin but it fades away. Not this again.");
+			xPlayer = 0;
+			yPlayer = 0;
+		}
+	}
+}

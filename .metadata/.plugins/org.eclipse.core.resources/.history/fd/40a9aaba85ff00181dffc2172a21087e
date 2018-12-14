@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		boolean proceed = true;
+		String input = "";
+		String previousInput;
+		Scanner sc = new Scanner(System.in);
+		
+		Map map = new Map();
+		
+		while (proceed)
+		{
+			previousInput = input;
+			input = sc.next();
+			
+			if (input.toUpperCase().equals("NORTH") || input.toUpperCase().equals("N"))
+			{
+				map.north(previousInput);
+			}
+			else if (input.toUpperCase().equals("EAST") || input.toUpperCase().equals("E"))
+			{
+				map.east(previousInput);
+			}
+			else if (input.toUpperCase().equals("SOUTH") || input.toUpperCase().equals("S"))
+			{
+				map.south(previousInput);
+			}
+			else if (input.toUpperCase().equals("WEST") || input.toUpperCase().equals("W"))
+			{
+				map.west(previousInput);
+			}
+			else if (input.toUpperCase().equals("PICKUP") || input.toUpperCase().equals("P"))
+			{
+				map.pickup();
+			}
+			
+			System.out.println(map.checkLocation());
+		}
+		
+		
+		
+		
+		
+	}
+
+}

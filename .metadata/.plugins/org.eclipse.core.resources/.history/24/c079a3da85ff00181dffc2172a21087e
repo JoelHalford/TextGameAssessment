@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Player {
+
+	ArrayList<String> inventory = new ArrayList<>();
+	
+	public void addItem()
+	{
+		inventory.add("Compass");
+	}
+	
+	public void checkInventory()
+	{
+		System.out.println("Inventory Contents");
+		inventory.stream().forEach(System.out::println);
+	}
+	
+	public void checkCompass()
+	{
+		
+	}
+}
